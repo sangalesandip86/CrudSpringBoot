@@ -31,7 +31,7 @@ Example of an event data JSON object:
 
 
 ## Requirements:
-You are provided with the implementation of the Event model. The REST service must expose the `/events` endpoint, which allows for managing the collection of event records in the following way:
+The REST service must expose the `/events` endpoint, which allows for managing the collection of event records in the following way:
 
 `POST` request to `/events` :
 * creates a new event
@@ -51,8 +51,6 @@ GET request to `/events/{eventId}`:
 * returns an event with the given id
 * if the matching event exists, the response code is 200 and the response body is the matching event object
 * if there is no event in the collection with the given id, the response code is 404
-
-Your task is to complete the given project so that it passes all the test cases when running the provided unit tests. The project by default supports the use of the H2 database. Implement the `POST` request to `/events` first because testing the other methods requires `POST` to work correctly.
 
 ## Commands
 - run: 
