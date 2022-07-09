@@ -26,7 +26,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
@@ -97,7 +96,6 @@ public class ApplicationTests {
             Assert.assertTrue(new ReflectionEquals(expectedRecords.get(i)).matches(actualRecords.get(i)));
         }
     }
-
     @Test
     public void testGetEventRecordWithId() throws Exception {
         Event expectedRecord = getTestData().get("event_01_push");
@@ -147,7 +145,7 @@ public class ApplicationTests {
                     .andExpect(status().isCreated()).andReturn().getResponse().getContentAsString(), Event.class));
         }
         Collections.sort(expectedEventsWithRepoId2, Comparator.comparing(Event::getId));
-
+//
         //get
         List<Event> actualEventsWithRepoId1 = om.readValue(mockMvc.perform(get("/repos/1/events"))
                 .andExpect(status().isOk())
