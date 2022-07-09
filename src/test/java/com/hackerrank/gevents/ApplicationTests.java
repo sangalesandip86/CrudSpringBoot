@@ -58,6 +58,8 @@ public class ApplicationTests {
         Assert.assertTrue(new ReflectionEquals(expectedRecord, "id").matches(actualRecord));
         assertEquals(true, eventRepository.findById(actualRecord.getId()).isPresent());
 
+
+
         expectedRecord = testData.get("event_02_watch");
         actualRecord = om.readValue(mockMvc.perform(post("/events")
                 .contentType("application/json")
